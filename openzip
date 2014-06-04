@@ -1,0 +1,26 @@
+#!/bin/bash
+#Script para abrir arquivo .zip com senha utilizando o 7z com  dicionário
+#Crie um arquivo contendo as possiveis senhas com o nome "senha"
+
+np=$(wc senha | cut -c1-6)
+c=1
+while [ $c -le $np ]
+do
+        ps=$(head -n $c senha | tail -n 1) 
+	#echo "Tentativa $ps"
+	#unzip -P $ps arq.zip >& /dev/null	
+	7z e arq.zip -p$ps -y >& /dev/null
+  
+	if [ $? -eq 0 ]; then
+	echo "Senha Localizada!"
+	sd=$ps	
+	fi
+
+((c++))
+
+done
+
+echo "Senha do arquivo: $sd"
+sleep 1
+echo "Extraindo arquivo..."
+7z e arq.zip -p$sd -y >& /dev/null
