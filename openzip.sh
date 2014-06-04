@@ -1,6 +1,9 @@
 #!/bin/bash
-#Script para abrir arquivo .zip com senha utilizando o 7z com  dicionário
+#Script para recuperar acesso a arquivo .zip com senha utilizando o 7z por meio de dicionário
 #Crie um arquivo contendo as possiveis senhas com o nome "senha"
+#Nomeie o arquivo a ser recuperado para arq.zip
+#Instale o 7z => apt-get install p7zip
+#Dê permissão de leitura e escrita => chmod 755 openzip.sh
 
 np=$(wc senha | cut -c1-6)
 c=1
