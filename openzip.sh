@@ -5,6 +5,18 @@
 #Instale o 7z => apt-get install p7zip
 #Dê permissão de leitura e escrita => chmod 755 openzip.sh
 
+which 77z >& /dev/null
+vr=$?
+
+if [ $vr == 0 ]; then
+echo "[OK] Utilitário 7z instalado"
+else
+echo "[erro] Utilitário 7z não está instalado"
+echo "[erro] Instale o pacote p7zip"
+
+fi
+
+
 np=$(wc senha | cut -c1-6)
 c=1
 while [ $c -le $np ]
